@@ -20,7 +20,7 @@ $ yarn add @nodesecure/vis-network
 ## Usage example
 
 ```js
-// Import Internal Dependencies
+// Import Third-party Dependencies
 import { NodeSecureDataSet, NodeSecureNetwork } from "@nodesecure/vis-network";
 
 document.addEventListener("DOMContentLoaded", async() => {
@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", async() => {
 ```
 
 ## API
-TBC
+- [NodeSecureDataSet](./docs/NodeSecureDataSet.md)
+- [NodeSecureNetwork](./docs/NodeSecureNetwork.md)
 
 ## Contributors ✨
 
@@ -55,6 +56,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## Roadmap
+- Use `@nodesecure/flags` (or other) to implement **utils.getFlags()** 
 
 ## License
 MIT
