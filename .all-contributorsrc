@@ -1,0 +1,15 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "i18n",
+  "projectOwner": "NodeSecure",
+  "repoType": "vis-network",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
