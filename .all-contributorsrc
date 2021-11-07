@@ -5,11 +5,24 @@
   "imageSize": 100,
   "commit": false,
   "contributors": [
+    {
+      "login": "fraxken",
+      "name": "Gentilhomme",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4438263?v=4",
+      "profile": "https://www.linkedin.com/in/thomas-gentilhomme/",
+      "contributions": [
+        "code",
+        "doc",
+        "review",
+        "security",
+        "bug"
+      ]
+    }
   ],
   "contributorsPerLine": 7,
-  "projectName": "i18n",
+  "projectName": "vis-network",
   "projectOwner": "NodeSecure",
-  "repoType": "vis-network",
+  "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true
 }
