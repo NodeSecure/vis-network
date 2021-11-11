@@ -66,7 +66,7 @@ export default class NodeSecureDataSet extends EventTarget {
         }
         this.size += size;
 
-        const flagStr = utils.getFlags(flags, { metadata, vulnerabilities, versions });
+        const flagStr = utils.getFlagsEmojisInlined(flags);
         this.packages.push({
           id,
           name: packageName,

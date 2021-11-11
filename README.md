@@ -57,9 +57,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## Roadmap
-- Use `@nodesecure/flags` (or other) to implement **utils.getFlags()** 
-
 ## License
 MIT
 
