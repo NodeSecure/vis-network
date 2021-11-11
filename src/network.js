@@ -129,7 +129,7 @@ export default class NodeSecureNetwork {
   highlightNodeNeighbour(node, hidden = false) {
     this.network.startSimulation();
 
-    const updatedNodes = [...searchForNeighbourIds(node)]
+    const updatedNodes = [...this.searchForNeighbourIds(node)]
       .map((id) => ({ id, hidden }));
 
     this.nodes.update(updatedNodes);
