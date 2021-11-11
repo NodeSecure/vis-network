@@ -19,9 +19,14 @@ export default class NodeSecureDataSet extends EventTarget {
     this.rawNodesData = [];
     this.rawEdgesData = [];
 
+    this.data = {};
     this.dependenciesCount = 0;
     this.size = 0;
     this.indirectDependencies = 0;
+  }
+
+  get prettySize() {
+    return prettyBytes(this.size);
   }
 
   async init(initialPayload = null, initialFlags = {}) {
@@ -40,16 +45,12 @@ export default class NodeSecureDataSet extends EventTarget {
 
     this.FLAGS = FLAGS;
     this.warnings = data.warnings;
-    this.dispatchEvent(
-      new CustomEvent("payload", { data })
-    );
+    this.data = data;
 
     const dataEntries = Object.entries(data.dependencies);
     this.dependenciesCount = dataEntries.length;
 
     for (const [packageName, descriptor] of dataEntries) {
-      const { metadata, vulnerabilities, versions } = descriptor;
-
       for (const currVersion of descriptor.versions) {
         const opt = descriptor[currVersion];
         const { id, usedBy, flags, size, license, author, composition } = opt;
