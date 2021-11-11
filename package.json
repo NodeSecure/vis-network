@@ -1,9 +1,9 @@
 {
   "name": "@nodesecure/vis-network",
   "version": "1.0.0",
-  "description": "NodeSecure vis.js network front-end module",
+  "description": "NodeSecure vis.js network front module",
   "type": "module",
-  "exports": "./src/network.js",
+  "exports": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run build && http-server ./dist",
@@ -17,7 +17,11 @@
     "index.js",
     "src"
   ],
-  "keywords": [],
+  "keywords": [
+    "NodeSecure",
+    "vis",
+    "network"
+  ],
   "author": "GENTILHOMME Thomas <gentilhomme.thomas@gmail.com>",
   "license": "MIT",
   "bugs": {

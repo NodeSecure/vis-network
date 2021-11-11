@@ -35,6 +35,14 @@ document.addEventListener("DOMContentLoaded", async() => {
 - [NodeSecureDataSet](./docs/NodeSecureDataSet.md)
 - [NodeSecureNetwork](./docs/NodeSecureNetwork.md)
 
+## Scripts
+The project scripts are used for those who want to test the code.
+
+- **npm start** to start an httpserver from `./dist`
+- **npm run build** to build the `./example` with esbuild.
+
+> **Note**: The start command run the build command before launching the http server.
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
