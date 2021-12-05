@@ -64,6 +64,7 @@ export default class NodeSecureNetwork {
     const networkElement = document.getElementById(NodeSecureNetwork.networkElementId);
     networkElement.click();
 
+    this.secureDataSet = secureDataSet;
     this.highlightEnabled = false;
     this.isLoaded = false;
     const { nodes, edges } = secureDataSet.build();
@@ -138,10 +139,8 @@ export default class NodeSecureNetwork {
   * searchForNeighbourIds(/** @type {number} */selectedNode) {
     const { name, version } = this.linker.get(selectedNode);
 
-    for (const descriptor of Object.values(data.dependencies)) {
-      for (const currVersion of descriptor.versions) {
-        const { id, usedBy } = descriptor[currVersion];
-
+    for (const descriptor of Object.values(this.secureDataSet.data.dependencies)) {
+      for (const { id, usedBy } of Object.values(descriptor.versions)) {
         if (Reflect.has(usedBy, name) && usedBy[name] === version) {
           yield* this.searchForNeighbourIds(id);
           yield id;

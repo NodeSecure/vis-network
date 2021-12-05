@@ -51,9 +51,9 @@ export default class NodeSecureDataSet extends EventTarget {
     this.dependenciesCount = dataEntries.length;
 
     for (const [packageName, descriptor] of dataEntries) {
-      for (const currVersion of descriptor.versions) {
-        const opt = descriptor[currVersion];
+      for (const [currVersion, opt] of Object.entries(descriptor.versions)) {
         const { id, usedBy, flags, size, license, author, composition } = opt;
+
         opt.name = packageName;
         opt.version = currVersion;
         opt.hidden = false;
@@ -82,7 +82,7 @@ export default class NodeSecureDataSet extends EventTarget {
         this.rawNodesData.push({ id, label, color, font: { multi: "html" } });
 
         for (const [name, version] of Object.entries(usedBy)) {
-          this.rawEdgesData.push({ from: id, to: data.dependencies[name][version].id });
+          this.rawEdgesData.push({ from: id, to: data.dependencies[name].versions[version].id });
         }
       }
     }
