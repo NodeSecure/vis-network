@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@nodesecure/flags": "^2.2.0",
-    "@nodesecure/scanner": "^2.1.0",
+    "@nodesecure/scanner": "^3.0.0",
     "esbuild": "^0.13.13",
     "http-server": "^14.0.0"
   }
