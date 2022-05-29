@@ -29,13 +29,13 @@
   },
   "homepage": "https://github.com/NodeSecure/vis-network#readme",
   "dependencies": {
-    "pretty-bytes": "^5.6.0",
-    "vis-network": "^9.1.0"
+    "pretty-bytes": "^6.0.0",
+    "vis-network": "^9.1.2"
   },
   "devDependencies": {
     "@nodesecure/flags": "^2.2.0",
-    "@nodesecure/scanner": "^3.0.0",
-    "esbuild": "^0.14.2",
-    "http-server": "^14.0.0"
+    "@nodesecure/scanner": "^3.4.1",
+    "esbuild": "^0.14.42",
+    "http-server": "^14.1.0"
   }
 }
