@@ -69,8 +69,13 @@ export default class NodeSecureNetwork {
     this.isLoaded = false;
     const { nodes, edges } = secureDataSet.build();
 
-    this.theme = options.theme || "LIGHT";
-    this.colors = { ...CONSTANTS.COLORS[this.theme], ...options.colors };
+    if(options.theme !== undefined && !CONSTANTS.COLORS.hasOwnProperty(options.theme.toUpperCase())){
+      throw new Error (`Unknown theme ${options.theme}. Theme value can be LIGHT or DARK`)
+    } else {
+      this.theme = options.theme.toUpperCase() ?? "LIGHT";
+    }
+   
+    this.colors = { ...CONSTANTS.COLORS[this.theme], ...(options.colors ?? {}) };
 
     this.nodes = nodes;
     this.edges = edges;
