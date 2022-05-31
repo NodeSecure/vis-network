@@ -59,15 +59,21 @@ export default class NodeSecureNetwork {
   /**
    * @param {!NodeSecureDataSet} secureDataSet
    */
-  constructor(secureDataSet) {
+  constructor(secureDataSet, initialTheme = {}) {
     console.log("[Network] created");
     const networkElement = document.getElementById(NodeSecureNetwork.networkElementId);
     networkElement.click();
+
+    let theme = initialTheme.theme || "LIGHT";
+    let colors = { ...CONSTANTS.COLORS[theme], ...initialTheme.colors };
 
     this.secureDataSet = secureDataSet;
     this.highlightEnabled = false;
     this.isLoaded = false;
     const { nodes, edges } = secureDataSet.build();
+
+    this.theme = theme;
+    this.colors = colors;
 
     this.nodes = nodes;
     this.edges = edges;
@@ -127,7 +133,7 @@ export default class NodeSecureNetwork {
    * @param {!number} node
    * @param {boolean} hidden
    */
-  highlightNodeNeighbour(node, hidden = false) {
+   highlightNodeNeighbour(node, hidden = false) {
     this.network.startSimulation();
 
     const updatedNodes = [...this.searchForNeighbourIds(node)]
@@ -159,7 +165,7 @@ export default class NodeSecureNetwork {
 
       // mark all nodes as hard to read.
       for (const node of Object.values(allNodes)) {
-        node.color = CONSTANTS.COLORS.TRS;
+        node.color = this.colors.TRS;
       }
 
       // get the second degree nodes
@@ -171,25 +177,25 @@ export default class NodeSecureNetwork {
 
       // all second degree nodes get a different color and their label back
       for (let id = 0; id < allConnectedNodes.length; id++) {
-        allNodes[allConnectedNodes[id]].color = CONSTANTS.COLORS.NORMAL;
+        allNodes[allConnectedNodes[id]].color = this.colors.NORMAL;
       }
 
       // all first degree nodes get their own color and their label back
       for (let id = 0; id < connectedNodes.length; id++) {
-        allNodes[connectedNodes[id]].color = CONSTANTS.COLORS.SELECTED;
+        allNodes[connectedNodes[id]].color = this.colors.SELECTED;
       }
 
       // the main node gets its own color and its label back.
-      allNodes[selectedNode].color = CONSTANTS.COLORS.MAIN;
+      allNodes[selectedNode].color = this.colors.MAIN;
 
       this.network.focus(selectedNode, { animation: true, scale: 0.35 });
-    }
+    } 
     else if (this.highlightEnabled) {
       this.highlightEnabled = false;
       for (const node of Object.values(allNodes)) {
         const { id, flags } = this.linker.get(Number(node.id));
 
-        node.color = utils.getNodeColor(id, flags);
+        node.color = utils.getNodeColor(id, flags, this.theme);
       }
     }
 
