@@ -133,7 +133,7 @@ export default class NodeSecureNetwork {
    * @param {!number} node
    * @param {boolean} hidden
    */
-   highlightNodeNeighbour(node, hidden = false) {
+  highlightNodeNeighbour(node, hidden = false) {
     this.network.startSimulation();
 
     const updatedNodes = [...this.searchForNeighbourIds(node)]
@@ -189,7 +189,7 @@ export default class NodeSecureNetwork {
       allNodes[selectedNode].color = this.colors.MAIN;
 
       this.network.focus(selectedNode, { animation: true, scale: 0.35 });
-    } 
+    }
     else if (this.highlightEnabled) {
       this.highlightEnabled = false;
       for (const node of Object.values(allNodes)) {
