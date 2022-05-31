@@ -59,21 +59,18 @@ export default class NodeSecureNetwork {
   /**
    * @param {!NodeSecureDataSet} secureDataSet
    */
-  constructor(secureDataSet, initialTheme = {}) {
+  constructor(secureDataSet, options = {}) {
     console.log("[Network] created");
     const networkElement = document.getElementById(NodeSecureNetwork.networkElementId);
     networkElement.click();
-
-    let theme = initialTheme.theme || "LIGHT";
-    let colors = { ...CONSTANTS.COLORS[theme], ...initialTheme.colors };
 
     this.secureDataSet = secureDataSet;
     this.highlightEnabled = false;
     this.isLoaded = false;
     const { nodes, edges } = secureDataSet.build();
 
-    this.theme = theme;
-    this.colors = colors;
+    this.theme = options.theme || "LIGHT";
+    this.colors = { ...CONSTANTS.COLORS[this.theme], ...options.colors };
 
     this.nodes = nodes;
     this.edges = edges;
@@ -133,7 +130,7 @@ export default class NodeSecureNetwork {
    * @param {!number} node
    * @param {boolean} hidden
    */
-   highlightNodeNeighbour(node, hidden = false) {
+  highlightNodeNeighbour(node, hidden = false) {
     this.network.startSimulation();
 
     const updatedNodes = [...this.searchForNeighbourIds(node)]
@@ -189,7 +186,7 @@ export default class NodeSecureNetwork {
       allNodes[selectedNode].color = this.colors.MAIN;
 
       this.network.focus(selectedNode, { animation: true, scale: 0.35 });
-    } 
+    }
     else if (this.highlightEnabled) {
       this.highlightEnabled = false;
       for (const node of Object.values(allNodes)) {
