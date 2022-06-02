@@ -1,6 +1,6 @@
 export const COLORS = Object.freeze({
   LIGHT: {
-    MAIN: "#01579B", 
+    MAIN: "#01579B",
     INDIRECT: "rgba(107, 178, 178, 1)",
     WARN: "rgba(210, 115, 115, 1)",
     NORMAL: "rgba(150, 200, 200, 1)",
