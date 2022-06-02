@@ -6,5 +6,7 @@ document.addEventListener("DOMContentLoaded", async() => {
   const secureDataSet = new NodeSecureDataSet();
   await secureDataSet.init(payload, window.FLAGS);
 
-  new NodeSecureNetwork(secureDataSet);
+  new NodeSecureNetwork(secureDataSet, {
+    theme: "LIGHT"
+  });
 });
