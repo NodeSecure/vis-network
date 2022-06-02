@@ -23,20 +23,21 @@ export async function getJSON(path, customHeaders = Object.create(null)) {
 /**
  * @param {!number} id
  * @param {!string[]} flags
+ * @param {string} [theme=LIGHT] theme
  * @returns {string}
  */
-export function getNodeColor(id, flags) {
+export function getNodeColor(id, flags, theme = "LIGHT") {
   if (id === 0) {
-    return CONSTANTS.COLORS.MAIN;
+    return CONSTANTS.COLORS[theme].MAIN;
   }
   else if (flags.includes("hasWarnings") || flags.includes("hasMinifiedCode")) {
-    return CONSTANTS.COLORS.WARN;
-  }
+    return CONSTANTS.COLORS[theme].WARN;
+  } 
   else if (flags.includes("hasIndirectDependencies")) {
-    return CONSTANTS.COLORS.INDIRECT;
+    return CONSTANTS.COLORS[theme].INDIRECT;
   }
 
-  return CONSTANTS.COLORS.NORMAL;
+  return CONSTANTS.COLORS[theme].NORMAL;
 }
 
 export function getFlagsEmojisInlined(flags) {
