@@ -17,6 +17,15 @@
         "security",
         "bug"
       ]
+    },
+    {
+      "login": "im-codebreaker",
+      "name": "im_codebreaker",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53506859?v=4",
+      "profile": "https://github.com/im-codebreaker",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
