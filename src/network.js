@@ -77,11 +77,7 @@ export default class NodeSecureNetwork {
     if(!(theme in CONSTANTS.COLORS)){
       throw new Error(`Unknown theme ${options.theme}. Theme value can be LIGHT or DARK`)
     }
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> 24291ad4522901de57612474a3be7b2352212709
     this.theme = theme;
     this.colors = { ...CONSTANTS.COLORS[this.theme], ...(options.colors ?? {}) };
 
