@@ -58,6 +58,9 @@ export default class NodeSecureNetwork {
 
   /**
    * @param {!NodeSecureDataSet} secureDataSet
+   * @param {object} [options]
+   * @param {"LIGHT" | "DARK"} [options.theme="LIGHT"]
+   * @param {*} [options.colors]
    */
   constructor(secureDataSet, options = {}) {
     console.log("[Network] created");
@@ -74,7 +77,7 @@ export default class NodeSecureNetwork {
     if(!(theme in CONSTANTS.COLORS)){
       throw new Error(`Unknown theme ${options.theme}. Theme value can be LIGHT or DARK`)
     }
- 
+
     this.theme = theme;
     this.colors = { ...CONSTANTS.COLORS[this.theme], ...(options.colors ?? {}) };
 
