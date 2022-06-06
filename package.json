@@ -33,7 +33,7 @@
     "vis-network": "^9.1.2"
   },
   "devDependencies": {
-    "@nodesecure/flags": "^2.2.0",
+    "@nodesecure/flags": "^2.3.0",
     "@nodesecure/scanner": "^3.4.1",
     "esbuild": "^0.14.42",
     "http-server": "^14.1.0"
