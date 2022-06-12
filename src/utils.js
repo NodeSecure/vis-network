@@ -27,17 +27,15 @@ export async function getJSON(path, customHeaders = Object.create(null)) {
  * @returns {string}
  */
 export function getNodeColor(id, flags, theme = "LIGHT") {
+  // id 0 is the root package (so by default he is highlighted as selected).
   if (id === 0) {
-    return CONSTANTS.COLORS[theme].MAIN;
+    return CONSTANTS.COLORS[theme].SELECTED;
   }
   else if (flags.includes("hasWarnings") || flags.includes("hasMinifiedCode")) {
     return CONSTANTS.COLORS[theme].WARN;
-  } 
-  else if (flags.includes("hasIndirectDependencies")) {
-    return CONSTANTS.COLORS[theme].INDIRECT;
   }
 
-  return CONSTANTS.COLORS[theme].NORMAL;
+  return CONSTANTS.COLORS[theme].DEFAULT;
 }
 
 export function getFlagsEmojisInlined(flags) {

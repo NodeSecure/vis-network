@@ -12,8 +12,11 @@
 body, html {
     height: 100%;
     font-size: 16px;
-    background: rgb(39, 50, 56);
-    background: radial-gradient(ellipse at center,rgba(39, 50, 56, 1) 1%,rgba(22, 30, 33, 1) 100%);
+    background: rgb(255,255,255);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 15%, rgba(208,220,221,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 15%,rgba(208,220,221,1) 100%);
+    background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 15%,rgba(208,220,221,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d0dcdd',GradientType=1 );
 }
 
 body {

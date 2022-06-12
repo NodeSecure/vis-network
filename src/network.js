@@ -171,7 +171,7 @@ export default class NodeSecureNetwork {
 
       // mark all nodes as hard to read.
       for (const node of Object.values(allNodes)) {
-        node.color = this.colors.TRS;
+        node.color = this.colors.HARDTOREAD;
       }
 
       // get the second degree nodes
@@ -183,16 +183,16 @@ export default class NodeSecureNetwork {
 
       // all second degree nodes get a different color and their label back
       for (let id = 0; id < allConnectedNodes.length; id++) {
-        allNodes[allConnectedNodes[id]].color = this.colors.NORMAL;
+        allNodes[allConnectedNodes[id]].color = this.colors.DEFAULT;
       }
 
       // all first degree nodes get their own color and their label back
       for (let id = 0; id < connectedNodes.length; id++) {
-        allNodes[connectedNodes[id]].color = this.colors.SELECTED;
+        allNodes[connectedNodes[id]].color = this.colors.CONNECTED;
       }
 
       // the main node gets its own color and its label back.
-      allNodes[selectedNode].color = this.colors.MAIN;
+      allNodes[selectedNode].color = this.colors.SELECTED;
 
       this.network.focus(selectedNode, { animation: true, scale: 0.35 });
     }
