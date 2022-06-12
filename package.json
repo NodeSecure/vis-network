@@ -1,6 +1,6 @@
 {
   "name": "@nodesecure/vis-network",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "NodeSecure vis.js network front module",
   "type": "module",
   "exports": "./index.js",
