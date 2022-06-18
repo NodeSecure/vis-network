@@ -74,7 +74,7 @@ export default class NodeSecureNetwork {
 
     const theme = options.theme?.toUpperCase() ?? 'LIGHT';
 
-    if(!(theme in CONSTANTS.COLORS)){
+    if (!(theme in CONSTANTS.COLORS)) {
       throw new Error(`Unknown theme ${options.theme}. Theme value can be LIGHT or DARK`)
     }
 
@@ -163,6 +163,7 @@ export default class NodeSecureNetwork {
 
   neighbourHighlight(params) {
     const allNodes = this.nodes.get({ returnType: "Object" });
+    const allEdges = this.edges.get();
 
     // if something is selected:
     if (params.nodes.length > 0) {
@@ -188,7 +189,10 @@ export default class NodeSecureNetwork {
 
       // all first degree nodes get their own color and their label back
       for (let id = 0; id < connectedNodes.length; id++) {
-        allNodes[connectedNodes[id]].color = this.colors.CONNECTED;
+        const isNodeConnectedIn = allEdges.some(edge => edge.from === selectedNode && edge.to === connectedNodes[id]);
+        const color = this.colors[isNodeConnectedIn ? "CONNECTED_IN" : "CONNECTED_OUT"];
+
+        allNodes[connectedNodes[id]].color = color;
       }
 
       // the main node gets its own color and its label back.
