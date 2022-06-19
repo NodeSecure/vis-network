@@ -203,9 +203,9 @@ export default class NodeSecureNetwork {
     else if (this.highlightEnabled) {
       this.highlightEnabled = false;
       for (const node of Object.values(allNodes)) {
-        const { id, flags } = this.linker.get(Number(node.id));
+        const { id, hasWarnings } = this.linker.get(Number(node.id));
 
-        node.color = utils.getNodeColor(id, flags, this.theme);
+        node.color = utils.getNodeColor(id, hasWarnings, this.theme);
       }
     }
 
