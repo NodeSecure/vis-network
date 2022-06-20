@@ -6,9 +6,18 @@ import { DataSet } from "vis-network/standalone/esm/index.js";
 import * as utils from "./utils.js";
 
 export default class NodeSecureDataSet extends EventTarget {
-  constructor() {
+  /**
+   *
+   * @param {object} [options]
+   * @param {string[]} [options.flagsToIgnore=[]]
+   * @param {string[]} [options.warningsToIgnore=[]]
+   */
+  constructor(options = {}) {
     super();
+    const { flagsToIgnore = [], warningsToIgnore = [] } = options;
 
+    this.flagsToIgnore = new Set(flagsToIgnore);
+    this.warningsToIgnore = new Set(warningsToIgnore);
     this.warnings = [];
     this.packages = [];
     this.linker = new Map();
@@ -52,7 +61,11 @@ export default class NodeSecureDataSet extends EventTarget {
 
     for (const [packageName, descriptor] of dataEntries) {
       for (const [currVersion, opt] of Object.entries(descriptor.versions)) {
-        const { id, usedBy, flags, size, license, author, composition } = opt;
+        const { id, usedBy, flags, size, license, author, composition, warnings } = opt;
+
+        const filteredWarnings = warnings
+          .filter((row) => !this.warningsToIgnore.has(row.kind));
+        const hasWarnings = filteredWarnings.length > 0;
 
         opt.name = packageName;
         opt.version = currVersion;
@@ -67,16 +80,20 @@ export default class NodeSecureDataSet extends EventTarget {
         }
         this.size += size;
 
-        const flagStr = utils.getFlagsEmojisInlined(flags);
+        const flagStr = utils.getFlagsEmojisInlined(
+          flags,
+          hasWarnings ? new Set([...this.flagsToIgnore, "hasWarnings"]) : this.flagsToIgnore
+        );
         this.packages.push({
           id,
           name: packageName,
           version: currVersion,
+          hasWarnings,
           flags: flagStr.replace(/\s/g, "")
         });
 
         const label = `${packageName}@${currVersion}${flagStr}\n<b>[${prettyBytes(size)}]</b>`;
-        const color = utils.getNodeColor(id, flags);
+        const color = utils.getNodeColor(id, hasWarnings);
 
         this.linker.set(Number(id), opt);
         this.rawNodesData.push({ id, label, color, font: { multi: "html" } });
