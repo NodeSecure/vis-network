@@ -10,39 +10,39 @@
 export const COLORS = Object.freeze({
   LIGHT: {
     SELECTED: {
-      color: "#673AB7",
+      color: "#4527A0",
       font: {
         color: "#FFF",
       },
     },
     DEFAULT: {
-      color: "#37474F",
+      color: "#E3F2FD",
       font: {
-        color: "#FFF",
+        color: "#121533"
       },
     },
     WARN: {
-      color: "#DD2C00",
+      color: "#EF5350",
       font: {
         color: "#FFF",
       },
     },
     CONNECTED_IN: {
-      color: "#2E7D32",
+      color: "#C8E6C9",
       font: {
-        color: "#FFF",
+        color: "#1B5E20",
       },
     },
     CONNECTED_OUT: {
-      color: "#447d2e",
+      color: "#F0F4C3",
       font: {
-        color: "#FFF",
+        color: "#827717",
       },
     },
     HARDTOREAD: {
-      color: "rgba(20, 20, 20, 0.2)",
+      color: "rgba(20, 20, 20, 0.1)",
       font: {
-        color: "#FFF",
+        color: "#757575",
       },
     },
   },

@@ -70,6 +70,7 @@ export default class NodeSecureDataSet extends EventTarget {
         opt.name = packageName;
         opt.version = currVersion;
         opt.hidden = false;
+        opt.hasWarnings = hasWarnings;
 
         this.computeExtension(composition.extensions);
         this.computeLicense(license);
@@ -82,7 +83,7 @@ export default class NodeSecureDataSet extends EventTarget {
 
         const flagStr = utils.getFlagsEmojisInlined(
           flags,
-          hasWarnings ? new Set([...this.flagsToIgnore, "hasWarnings"]) : this.flagsToIgnore
+          hasWarnings ? this.flagsToIgnore : new Set([...this.flagsToIgnore, "hasWarnings"])
         );
         this.packages.push({
           id,
@@ -92,11 +93,12 @@ export default class NodeSecureDataSet extends EventTarget {
           flags: flagStr.replace(/\s/g, "")
         });
 
-        const label = `${packageName}@${currVersion}${flagStr}\n<b>[${prettyBytes(size)}]</b>`;
-        const color = utils.getNodeColor(id, hasWarnings).color;
+        const label = `<b>${packageName}@${currVersion}</b>${flagStr}\n<b>[${prettyBytes(size)}]</b>`;
+        const color = utils.getNodeColor(id, hasWarnings);
+        color.font.multi = "html";
 
         this.linker.set(Number(id), opt);
-        this.rawNodesData.push({ id, label, color, font: { multi: "html" } });
+        this.rawNodesData.push(Object.assign({ id, label }, color));
 
         for (const [name, version] of Object.entries(usedBy)) {
           this.rawEdgesData.push({ from: id, to: data.dependencies[name].versions[version].id });
