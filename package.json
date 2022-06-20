@@ -40,10 +40,5 @@
     "esbuild": "^0.14.42",
     "http-server": "^14.1.0",
     "tap": "^16.3.0"
-  },
-  "tap": {
-    "test-env": {
-      "NODE_OPTIONS": "--experimental-loader @istanbuljs/esm-loader-hook"
-    }
   }
 }
