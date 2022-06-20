@@ -5,8 +5,9 @@
   "type": "module",
   "exports": "./index.js",
   "scripts": {
-    "test": "tap --node-arg='--no-warnings' --node-arg='--experimental-loader' --node-arg='@istanbuljs/esm-loader-hook' test/*test.js",
-    "test:watch": "npm test -- --watch",
+    "test": "tap --no-coverage",
+    "test:watch": "tap --watch",
+    "test:c8": "c8 tap --no-coverage",
     "start": "npm run build && http-server ./dist",
     "build": "node esbuild.config.js"
   },
@@ -34,7 +35,6 @@
     "vis-network": "^9.1.2"
   },
   "devDependencies": {
-    "@istanbuljs/esm-loader-hook": "^0.1.2",
     "@nodesecure/flags": "^2.3.0",
     "@nodesecure/scanner": "^3.4.1",
     "esbuild": "^0.14.42",
