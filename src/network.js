@@ -172,7 +172,7 @@ export default class NodeSecureNetwork {
 
       // mark all nodes as hard to read.
       for (const node of Object.values(allNodes)) {
-        node.color = this.colors.HARDTOREAD;
+        Object.assign(node, this.colors.HARDTOREAD);
       }
 
       // get the second degree nodes
@@ -184,7 +184,7 @@ export default class NodeSecureNetwork {
 
       // all second degree nodes get a different color and their label back
       for (let id = 0; id < allConnectedNodes.length; id++) {
-        allNodes[allConnectedNodes[id]].color = this.colors.DEFAULT;
+        Object.assign(allNodes[allConnectedNodes[id]], this.colors.DEFAULT);
       }
 
       // all first degree nodes get their own color and their label back
@@ -192,11 +192,11 @@ export default class NodeSecureNetwork {
         const isNodeConnectedIn = allEdges.some(edge => edge.from === selectedNode && edge.to === connectedNodes[id]);
         const color = this.colors[isNodeConnectedIn ? "CONNECTED_IN" : "CONNECTED_OUT"];
 
-        allNodes[connectedNodes[id]].color = color;
+        Object.assign(allNodes[connectedNodes[id]], color);
       }
 
       // the main node gets its own color and its label back.
-      allNodes[selectedNode].color = this.colors.SELECTED;
+      Object.assign(allNodes[selectedNode], this.colors.SELECTED);
 
       this.network.focus(selectedNode, { animation: true, scale: 0.35 });
     }
@@ -205,7 +205,7 @@ export default class NodeSecureNetwork {
       for (const node of Object.values(allNodes)) {
         const { id, hasWarnings } = this.linker.get(Number(node.id));
 
-        node.color = utils.getNodeColor(id, hasWarnings, this.theme);
+        Object.assign(node, utils.getNodeColor(id, hasWarnings, this.theme));
       }
     }
 

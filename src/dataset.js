@@ -93,7 +93,7 @@ export default class NodeSecureDataSet extends EventTarget {
         });
 
         const label = `${packageName}@${currVersion}${flagStr}\n<b>[${prettyBytes(size)}]</b>`;
-        const color = utils.getNodeColor(id, hasWarnings);
+        const color = utils.getNodeColor(id, hasWarnings).color;
 
         this.linker.set(Number(id), opt);
         this.rawNodesData.push({ id, label, color, font: { multi: "html" } });
