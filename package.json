@@ -5,7 +5,7 @@
   "type": "module",
   "exports": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tap --node-arg='--no-warnings' --node-arg='--experimental-loader' --node-arg='@istanbuljs/esm-loader-hook' test/*test.js",
     "start": "npm run build && http-server ./dist",
     "build": "node esbuild.config.js"
   },
@@ -33,9 +33,16 @@
     "vis-network": "^9.1.2"
   },
   "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.1.2",
     "@nodesecure/flags": "^2.3.0",
     "@nodesecure/scanner": "^3.4.1",
     "esbuild": "^0.14.42",
-    "http-server": "^14.1.0"
+    "http-server": "^14.1.0",
+    "tap": "^16.3.0"
+  },
+  "tap": {
+    "test-env": {
+      "NODE_OPTIONS": "--experimental-loader @istanbuljs/esm-loader-hook"
+    }
   }
 }
