@@ -24,7 +24,7 @@ export async function getJSON(path, customHeaders = Object.create(null)) {
  * @param {!number} id
  * @param {boolean} [hasWarnings=false]
  * @param {string} [theme=LIGHT] theme
- * @returns {string}
+ * @returns {{color: string, font: {color: string }}}
  */
 export function getNodeColor(id, hasWarnings = false, theme = "LIGHT") {
   // id 0 is the root package (so by default he is highlighted as selected).
