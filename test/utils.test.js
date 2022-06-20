@@ -1,4 +1,7 @@
+// Import Third-party Dependencies
 import tap from "tap";
+
+// Import Internal Dependencies
 import { getFlagsEmojisInlined, getJSON, getNodeColor } from "../src/utils.js";
 import * as CONSTANTS from "../src/constants.js";
 
