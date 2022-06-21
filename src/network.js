@@ -14,18 +14,13 @@ export const NETWORK_OPTIONS = {
     size: 5,
     font: {
       face: "Roboto",
-      vadjust: 1,
-      size: 38,
-      color: "#ECEFF1",
-      bold: {
-        face: "Roboto",
-        color: "#F9FBE7"
-      }
+      vadjust: 2,
+      size: 40
     },
-    margin: 14,
+    margin: 20,
     shadow: {
       enabled: true,
-      color: "rgba(20, 20, 20, 0.2)"
+      color: "rgba(20, 20, 20, 0.1)"
     }
   },
   edges: {
@@ -37,10 +32,10 @@ export const NETWORK_OPTIONS = {
   physics: {
     forceAtlas2Based: {
       gravitationalConstant: -35,
-      centralGravity: 0.004,
-      springLength: 230,
+      centralGravity: 0.002,
+      springLength: 200,
       springConstant: 0.17,
-      avoidOverlap: 0.2
+      avoidOverlap: 0.8
     },
     maxVelocity: 150,
     solver: "forceAtlas2Based",
