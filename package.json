@@ -5,7 +5,9 @@
   "type": "module",
   "exports": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tap --no-coverage",
+    "test:watch": "tap --watch",
+    "test:c8": "c8 tap --no-coverage",
     "start": "npm run build && http-server ./dist",
     "build": "node esbuild.config.js"
   },
@@ -36,6 +38,7 @@
     "@nodesecure/flags": "^2.3.0",
     "@nodesecure/scanner": "^3.4.1",
     "esbuild": "^0.14.42",
-    "http-server": "^14.1.0"
+    "http-server": "^14.1.0",
+    "tap": "^16.3.0"
   }
 }
