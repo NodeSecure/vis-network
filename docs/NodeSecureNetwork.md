@@ -10,3 +10,10 @@ nsn.focusNodeByName("express"); // Focus by package name
 const ids = [...nsn.searchForNeighbourIds(0)];
 console.log(ids);
 ```
+
+## Customize elements and container IDS
+
+```js
+NodeSecureNetwork.networkElementId = "document_id";
+NodeSecureNetwork.networkLoaderElementId = "network_loader_id";
+```

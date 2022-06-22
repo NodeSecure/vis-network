@@ -19,6 +19,17 @@ const { nodes, edges } = secureDataSet.build();
 
 > The method is automatically called in NodeSecureNetwork class constructor
 
+## Constructor options
+
+The class allow you to ignore flags and/or warnings at initialization.
+
+```js
+const secureDataSet = new NodeSecureDataSet({
+  flagsToIgnore: ["🌲"],
+  warningsToIgnore: ["unsafe-regex", "encoded-literal", "unsafe-stmt"]
+});
+```
+
 ## Data
 
 The .init() method hydrate a lot of properties of the class.
