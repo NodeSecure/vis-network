@@ -1,9 +1,9 @@
-// Import Third-party Dependencies
-import prettyBytes from "pretty-bytes";
-import { DataSet } from "vis-network/standalone/esm/index.js";
-
 // Import Internal Dependencies
 import * as utils from "./utils.js";
+
+import { DataSet } from "vis-data";
+// Import Third-party Dependencies
+import prettyBytes from "pretty-bytes";
 
 export default class NodeSecureDataSet extends EventTarget {
   /**
