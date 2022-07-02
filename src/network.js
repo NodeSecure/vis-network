@@ -4,7 +4,6 @@ import { Network } from "vis-network/standalone/esm/index.js";
 // Import Internal Dependencies
 import * as CONSTANTS from "./constants.js";
 import * as utils from "./utils.js";
-import NodeSecureDataSet from "./dataset.js";
 
 // CONSTANTS
 export const NETWORK_OPTIONS = {
@@ -67,10 +66,10 @@ export default class NodeSecureNetwork {
     this.isLoaded = false;
     const { nodes, edges } = secureDataSet.build();
 
-    const theme = options.theme?.toUpperCase() ?? 'LIGHT';
+    const theme = options.theme?.toUpperCase() ?? "LIGHT";
 
     if (!(theme in CONSTANTS.COLORS)) {
-      throw new Error(`Unknown theme ${options.theme}. Theme value can be LIGHT or DARK`)
+      throw new Error(`Unknown theme ${options.theme}. Theme value can be LIGHT or DARK`);
     }
 
     this.theme = theme;
@@ -138,12 +137,21 @@ export default class NodeSecureNetwork {
     this.network.startSimulation();
 
     const updatedNodes = [...this.searchForNeighbourIds(node)]
-      .map((id) => ({ id, hidden }));
+      .map((id) => {
+        return { id, hidden };
+      });
 
     this.nodes.update(updatedNodes);
   }
 
-  * searchForNeighbourIds(/** @type {number} */selectedNode) {
+  /**
+   * Search for neighbours nodes of a given node
+   *
+   * @generator
+   * @param {number} selectedNode
+   * @yields {number} The next neighbour node
+   */
+  * searchForNeighbourIds(selectedNode) {
     const { name, version } = this.linker.get(selectedNode);
 
     for (const descriptor of Object.values(this.secureDataSet.data.dependencies)) {
@@ -184,7 +192,7 @@ export default class NodeSecureNetwork {
 
       // all first degree nodes get their own color and their label back
       for (let id = 0; id < connectedNodes.length; id++) {
-        const isNodeConnectedIn = allEdges.some(edge => edge.from === selectedNode && edge.to === connectedNodes[id]);
+        const isNodeConnectedIn = allEdges.some((edge) => edge.from === selectedNode && edge.to === connectedNodes[id]);
         const color = this.colors[isNodeConnectedIn ? "CONNECTED_IN" : "CONNECTED_OUT"];
 
         Object.assign(allNodes[connectedNodes[id]], color);

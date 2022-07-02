@@ -1,6 +1,6 @@
 // Import Third-party Dependencies
 import prettyBytes from "pretty-bytes";
-import { DataSet } from "vis-network/standalone/esm/index.js";
+import { DataSet } from "vis-data";
 
 // Import Internal Dependencies
 import * as utils from "./utils.js";
@@ -40,9 +40,9 @@ export default class NodeSecureDataSet extends EventTarget {
 
   async init(initialPayload = null, initialFlags = {}) {
     console.log("[NodeSecureDataSet] Initialization started...");
-    let data, FLAGS;
+    let FLAGS; let data;
 
-    if (initialPayload !== null) {
+    if (initialPayload) {
       data = initialPayload;
       FLAGS = initialFlags;
     }
