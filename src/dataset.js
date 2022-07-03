@@ -101,9 +101,6 @@ export default class NodeSecureDataSet extends EventTarget {
         this.rawNodesData.push(Object.assign({ id, label }, color));
 
         for (const [name, version] of Object.entries(usedBy)) {
-          if (!data.dependencies[name]?.versions) {
-            throw new Error(`${name}@${version} is not a valid version`);
-          }
           this.rawEdgesData.push({ from: id, to: data.dependencies[name].versions[version].id });
         }
       }
