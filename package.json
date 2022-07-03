@@ -5,6 +5,8 @@
   "type": "module",
   "exports": "./index.js",
   "scripts": {
+    "lint": "eslint src test",
+    "lint:fix": "eslint --fix src test",
     "test": "tap --no-coverage",
     "test:watch": "tap -b -T --watch",
     "test:c8": "c8 tap --no-coverage",
@@ -36,10 +38,12 @@
     "vis-network": "^9.1.2"
   },
   "devDependencies": {
+    "@nodesecure/eslint-config": "^1.4.1",
     "@nodesecure/flags": "^2.3.0",
     "@nodesecure/scanner": "^3.4.1",
     "c8": "^7.11.3",
     "esbuild": "^0.14.42",
+    "eslint": "^8.19.0",
     "http-server": "^14.1.0",
     "tap": "^16.3.0"
   }

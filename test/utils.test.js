@@ -14,16 +14,16 @@ tap.equal(json, response, "getJSON should works");
 const FLAGS = [
   {
     emoji: "🌍",
-    title: "hasExternalCapacity",
+    title: "hasExternalCapacity"
   },
   {
     emoji: "🚧",
-    title: "hasWarnings",
+    title: "hasWarnings"
   },
   {
     emoji: "🐲",
-    title: "hasNativeCode",
-  },
+    title: "hasNativeCode"
+  }
 ];
 
 const titles = FLAGS.map((flag) => flag.title);
@@ -42,24 +42,24 @@ tap.equal(
 
 tap.equal(
   getNodeColor(0),
-  CONSTANTS.COLORS["LIGHT"].SELECTED,
+  CONSTANTS.COLORS.LIGHT.SELECTED,
   "id 0 is the root package (so by default he is highlighted as selected)."
 );
 
 tap.equal(
   getNodeColor(1, true),
-  CONSTANTS.COLORS["LIGHT"].WARN,
+  CONSTANTS.COLORS.LIGHT.WARN,
   "hasWarnings is true, so the node is highlighted as warning."
 );
 
 tap.equal(
   getNodeColor(1, false),
-  CONSTANTS.COLORS["LIGHT"].DEFAULT,
+  CONSTANTS.COLORS.LIGHT.DEFAULT,
   "the node is highlighted as default."
 );
 
 tap.equal(
   getNodeColor(1, false, "DARK"),
-  CONSTANTS.COLORS["DARK"].DEFAULT,
+  CONSTANTS.COLORS.DARK.DEFAULT,
   "the node is highlighted as default and the theme is DARK."
 );

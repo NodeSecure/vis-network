@@ -1,17 +1,16 @@
 {
   "id": "pZNAwJ",
-  "rootDepencyName": "@adonisjs/core",
+  "rootDepencyName": "pkg1",
   "warnings": [],
   "dependencies": {
-    "fs-monkey": {
+    "pkg2": {
       "versions": {
         "1.0.3": {
           "id": 3,
           "usedBy": {
-            "memfs": "3.4.0"
+            "pkg3": "3.4.0"
           },
           "flags": [],
-          "description": "Monkey patches for file system related things.",
           "size": 100,
           "author": {},
           "warnings": [],
@@ -21,35 +20,7 @@
               ".js",
               "",
               ".json"
-            ],
-            "files": [
-              "CHANGELOG.md",
-              "LICENSE",
-              "README.md",
-              "docs\\api\\patchFs.md",
-              "docs\\api\\patchRequire.md",
-              "lib\\correctPath.js",
-              "lib\\index.js",
-              "lib\\patchFs.js",
-              "lib\\patchRequire.js",
-              "lib\\util\\lists.js",
-              "package.json"
-            ],
-            "minified": [],
-            "unused": [],
-            "missing": [],
-            "required_files": [
-              "lib\\patchFs.js",
-              "lib\\patchRequire.js",
-              "lib\\correctPath.js",
-              "lib\\util\\lists.js"
-            ],
-            "required_nodejs": [
-              "fs",
-              "path",
-              "module"
-            ],
-            "required_thirdparty": []
+            ]
           },
           "license": {
             "uniqueLicenseIds": [
@@ -60,22 +31,11 @@
               {
                 "uniqueLicenseIds": [
                   "Unlicense"
-                ],
-                "spdxLicenseLinks": [
-                  "https://spdx.org/licenses/Unlicense.html#licenseText"
-                ],
-                "spdx": {
-                  "osi": false,
-                  "fsf": true,
-                  "fsfAndOsi": false,
-                  "includesDeprecated": false
-                },
-                "from": "package.json"
+                ]
               }
             ]
           },
-          "gitUrl": null,
-          "name": "fs-monkey",
+          "name": "pkg2",
           "version": "1.0.3",
           "hidden": false,
           "hasWarnings": false
@@ -85,64 +45,40 @@
       "metadata": {
         "dependencyCount": 0,
         "publishedCount": 16,
-        "lastUpdateAt": "2021-04-05T03:27:32.212Z",
         "lastVersion": "1.0.3",
-        "hasManyPublishers": false,
-        "hasReceivedUpdateInOneYear": true,
-        "homepage": "https://github.com/streamich/fs-monkey#readme",
         "author": {
-          "name": "streamich",
-          "email": "vadimsdaleckis@gmail.com"
+          "name": "john doe",
+          "email": "john@doe.com"
         },
         "publishers": [
           {
-            "name": "streamich",
-            "email": "vadimsdaleckis@gmail.com",
-            "version": "1.0.3",
-            "at": "2021-04-05T03:27:32.212Z"
+            "name": "john doe",
+            "email": "john@doe.com"
           }
         ],
         "maintainers": [
           {
-            "name": "streamich",
-            "email": "vadimsdaleckis@gmail.com"
+            "name": "john doe",
+            "email": "john@doe.com"
           }
         ]
       }
     },
-    "memfs": {
+    "pkg3": {
       "versions": {
         "3.4.0": {
           "id": 4,
           "usedBy": {
-            "@adonisjs/core": "5.4.1"
+            "pkg1": "3.0.0"
           },
           "flags": [
             "hasDependencies",
+            "hasIndirectDependencies",
             "hasWarnings"
           ],
-          "description": "In-memory file-system with Node's fs API.",
           "size": 100,
           "author": {},
-          "warnings": [
-            {
-              "kind": "encoded-literal",
-              "value": "EBADF",
-              "location": [
-                [
-                  [
-                    71,
-                    12
-                  ],
-                  [
-                    71,
-                    19
-                  ]
-                ]
-              ],
-              "file": "lib\\volume.js"
-            }
-          ],
+          "warnings": [],
           "composition": {
             "extensions": [
               ".md",
@@ -150,131 +86,78 @@
               ".js",
               "",
               ".json"
-            ],
-            "files": [
-              "CHANGELOG.md",
-              "LICENSE",
-              "README.md",
-              "lib\\Dirent.d.ts",
-              "lib\\Dirent.js",
-              "lib\\Stats.d.ts",
-              "lib\\Stats.js",
-              "lib\\constants.d.ts",
-              "lib\\constants.js",
-              "lib\\encoding.d.ts",
-              "lib\\encoding.js",
-              "lib\\getBigInt.js",
-              "lib\\index.d.ts",
-              "lib\\index.js",
-              "lib\\internal\\buffer.d.ts",
-              "lib\\internal\\buffer.js",
-              "lib\\internal\\errors.d.ts",
-              "lib\\internal\\errors.js",
-              "lib\\node.d.ts",
-              "lib\\node.js",
-              "lib\\process.d.ts",
-              "lib\\process.js",
-              "lib\\promises.d.ts",
-              "lib\\promises.js",
-              "lib\\setImmediate.d.ts",
-              "lib\\setImmediate.js",
-              "lib\\setTimeoutUnref.d.ts",
-              "lib\\setTimeoutUnref.js",
-              "lib\\volume-localstorage.d.ts",
-              "lib\\volume-localstorage.js",
-              "lib\\volume.d.ts",
-              "lib\\volume.js",
-              "package.json"
-            ],
-            "minified": [],
-            "unused": [],
-            "missing": [],
-            "required_files": [
-              "lib\\constants.js",
-              "lib\\encoding.js",
-              "lib\\getBigInt.js",
-              "lib\\internal\\buffer.js",
-              "lib\\internal\\errors.js",
-              "lib\\Stats.js",
-              "lib\\Dirent.js",
-              "lib\\volume.js",
-              "lib\\process.js",
-              "lib\\setImmediate.js",
-              "lib\\node.js",
-              "lib\\setTimeoutUnref.js",
-              "lib\\promises.js"
-            ],
-            "required_nodejs": [
-              "buffer",
-              "assert",
-              "util",
-              "events",
-              "process",
-              "path",
-              "stream",
-              "url"
-            ],
-            "required_thirdparty": [
-              "fs-monkey",
-              "fs-monkey"
             ]
           },
           "license": {
             "uniqueLicenseIds": [
-              "Unlicense"
+              "Licence1"
             ],
             "hasMultipleLicenses": false,
             "licenses": [
               {
                 "uniqueLicenseIds": [
-                  "Unlicense"
+                  "Licence1"
                 ],
-                "spdxLicenseLinks": [
-                  "https://spdx.org/licenses/Unlicense.html#licenseText"
-                ],
-                "spdx": {
-                  "osi": false,
-                  "fsf": true,
-                  "fsfAndOsi": false,
-                  "includesDeprecated": false
-                },
                 "from": "package.json"
               }
             ]
-          },
-          "gitUrl": null
+          }
         }
       },
       "vulnerabilities": [],
       "metadata": {
         "dependencyCount": 1,
-        "publishedCount": 93,
-        "lastUpdateAt": "2021-11-24T13:57:39.361Z",
-        "lastVersion": "3.4.0",
-        "hasManyPublishers": false,
-        "hasReceivedUpdateInOneYear": true,
-        "homepage": "https://github.com/streamich/memfs#readme",
+        "homepage": "https://github.com/pkg3#readme",
         "author": {
-          "name": "streamich",
-          "email": "vadimsdaleckis@gmail.com"
+          "name": "john doe",
+          "email": "john@doe.com"
         },
         "publishers": [
           {
-            "name": "streamich",
-            "email": "vadimsdaleckis@gmail.com",
-            "version": "3.4.0",
-            "at": "2021-11-24T13:57:39.361Z"
+            "name": "john doe",
+            "email": "john@doe.com"
           }
         ],
         "maintainers": [
           {
-            "name": "streamich",
-            "email": "vadimsdaleckis@gmail.com"
+            "name": "john doe",
+            "email": "john@doe.com"
           }
-        ]
+        ],
+        "warnings": []
+      }
+    },
+    "pkg1": {
+      "versions": {
+        "3.0.0": {
+          "id": 0,
+          "usedBy": {},
+          "flags": [
+            "hasDependencies"
+          ],
+          "size": 200,
+          "author": {
+            "name": "john doe"
+          },
+          "composition": {
+            "extensions": [
+              ".ts",
+              ".js",
+              ".txt",
+              ".md",
+              ".json"
+            ]
+          },
+          "license": "a string licence (should be unknown)",
+          "warnings": []
+        }
       }
     }
   },
   "version": "2.2.0",
-  "vulnerabilityStrategy": "none"
+  "vulnerabilityStrategy": "none",
+  "warnings": [
+    "warning_01",
+    "warning_02"
+  ]
 }

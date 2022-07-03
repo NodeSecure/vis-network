@@ -1,9 +1,9 @@
-// Import Internal Dependencies
-import * as utils from "./utils.js";
-
-import { DataSet } from "vis-data";
 // Import Third-party Dependencies
 import prettyBytes from "pretty-bytes";
+import { DataSet } from "vis-data";
+
+// Import Internal Dependencies
+import * as utils from "./utils.js";
 
 export default class NodeSecureDataSet extends EventTarget {
   /**
@@ -40,9 +40,9 @@ export default class NodeSecureDataSet extends EventTarget {
 
   async init(initialPayload = null, initialFlags = {}) {
     console.log("[NodeSecureDataSet] Initialization started...");
-    let data, FLAGS;
+    let FLAGS; let data;
 
-    if (initialPayload !== null) {
+    if (initialPayload) {
       data = initialPayload;
       FLAGS = initialFlags;
     }
@@ -101,6 +101,9 @@ export default class NodeSecureDataSet extends EventTarget {
         this.rawNodesData.push(Object.assign({ id, label }, color));
 
         for (const [name, version] of Object.entries(usedBy)) {
+          if (!data.dependencies[name]?.versions) {
+            throw new Error(`${name}@${version} is not a valid version`);
+          }
           this.rawEdgesData.push({ from: id, to: data.dependencies[name].versions[version].id });
         }
       }
