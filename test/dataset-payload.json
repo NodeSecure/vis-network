@@ -1,12 +1,11 @@
 {
-  "id": "pZNAwJ",
+  "id": "abcde",
   "rootDepencyName": "pkg1",
   "warnings": [],
   "dependencies": {
     "pkg2": {
       "versions": {
         "1.0.3": {
-          "id": 3,
           "usedBy": {
             "pkg3": "3.4.0"
           },
@@ -25,43 +24,11 @@
           "license": {
             "uniqueLicenseIds": [
               "Unlicense"
-            ],
-            "hasMultipleLicenses": false,
-            "licenses": [
-              {
-                "uniqueLicenseIds": [
-                  "Unlicense"
-                ]
-              }
             ]
           },
           "name": "pkg2",
-          "version": "1.0.3",
-          "hidden": false,
-          "hasWarnings": false
+          "version": "1.0.3"
         }
-      },
-      "vulnerabilities": [],
-      "metadata": {
-        "dependencyCount": 0,
-        "publishedCount": 16,
-        "lastVersion": "1.0.3",
-        "author": {
-          "name": "john doe",
-          "email": "john@doe.com"
-        },
-        "publishers": [
-          {
-            "name": "john doe",
-            "email": "john@doe.com"
-          }
-        ],
-        "maintainers": [
-          {
-            "name": "john doe",
-            "email": "john@doe.com"
-          }
-        ]
       }
     },
     "pkg3": {
@@ -91,40 +58,9 @@
           "license": {
             "uniqueLicenseIds": [
               "Licence1"
-            ],
-            "hasMultipleLicenses": false,
-            "licenses": [
-              {
-                "uniqueLicenseIds": [
-                  "Licence1"
-                ],
-                "from": "package.json"
-              }
             ]
           }
         }
-      },
-      "vulnerabilities": [],
-      "metadata": {
-        "dependencyCount": 1,
-        "homepage": "https://github.com/pkg3#readme",
-        "author": {
-          "name": "john doe",
-          "email": "john@doe.com"
-        },
-        "publishers": [
-          {
-            "name": "john doe",
-            "email": "john@doe.com"
-          }
-        ],
-        "maintainers": [
-          {
-            "name": "john doe",
-            "email": "john@doe.com"
-          }
-        ],
-        "warnings": []
       }
     },
     "pkg1": {
@@ -155,7 +91,6 @@
     }
   },
   "version": "2.2.0",
-  "vulnerabilityStrategy": "none",
   "warnings": [
     "warning_01",
     "warning_02"
