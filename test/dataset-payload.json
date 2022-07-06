@@ -1,7 +1,6 @@
 {
   "id": "abcde",
   "rootDepencyName": "pkg1",
-  "warnings": [],
   "dependencies": {
     "pkg2": {
       "versions": {
