@@ -39,8 +39,9 @@ tap.test("NodeSecureDataSet.prettySize", (t) => {
 tap.test("NodeSecureDataSet.computeExtensions", (t) => {
   const nsDataSet = new NodeSecureDataSet();
   t.equal(Object.keys(nsDataSet.extensions).length, 0, "should have 0 extensions");
+
   nsDataSet.computeExtension([".js", ".js", ".json"]);
-  console.log("[NodeSecureDataSet] Computing extensions...", nsDataSet.extensions);
+
   t.equal(Object.keys(nsDataSet.extensions).length, 2, "should have 2 extension (js and json)");
   t.equal(nsDataSet.extensions[".js"], 2, "should have 2 '.js' extensions'");
 
@@ -64,7 +65,9 @@ tap.test("NodeSecureDataSet.computeAuthors", (t) => {
   const nsDataSet = new NodeSecureDataSet();
   nsDataSet.computeAuthor({ name: "John Doe" });
   t.equal(nsDataSet.authors.get("John Doe").count, 1, "should have 1 author: John Doe");
+
   nsDataSet.computeAuthor({ name: "John Doe" });
+
   t.equal(nsDataSet.authors.size, 1, "should have 1 author: John Doe (after the 2nd contribution");
   t.equal(nsDataSet.authors.get("John Doe").count, 2, "should have 1 author: John Doe (2nd time)");
 
