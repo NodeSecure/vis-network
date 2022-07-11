@@ -7,8 +7,8 @@
   "scripts": {
     "lint": "eslint src test",
     "lint:fix": "eslint --fix src test",
-    "test": "tap --no-coverage",
-    "test:watch": "tap -b -T --watch",
+    "test": "tap --no-coverage ./test/**.test.js",
+    "test:watch": "tap -b -T --watch ./test/**.test.js",
     "test:c8": "c8 tap --no-coverage",
     "start": "npm run build && http-server ./dist",
     "build": "node esbuild.config.js"

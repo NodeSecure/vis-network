@@ -1,20 +1,11 @@
-// Import Node.js Dependencies
-import fsPromises from "fs/promises";
-import path from "path";
-import { fileURLToPath } from "url";
-
 // Import Third-party Dependencies*
 import tap from "tap";
 
 // Import Internal Dependencies
 import NodeSecureDataSet from "../src/dataset.js";
+import { getDataSetPayload } from "./dataset.fixture.js";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const filePath = path.resolve(__dirname, "./dataset-payload.json");
-const dataSetPayloadStr = await fsPromises.readFile(filePath);
-const dataSetPayload = JSON.parse(dataSetPayloadStr);
+const dataSetPayload = await getDataSetPayload();
 
 tap.test("NodeSecureDataSet.init with given payload", async(t) => {
   const nsDataSet = new NodeSecureDataSet();
