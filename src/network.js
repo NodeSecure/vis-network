@@ -145,8 +145,11 @@ export default class NodeSecureNetwork {
   }
 
   /**
-   * Search for neighbour nodes of a given node
+   * Search for neighbours nodes of a given node
+   *
+   * @generator
    * @param {number} selectedNode
+   * @yields {number} The next neighbour node
    */
   * searchForNeighbourIds(selectedNode) {
     const { name, version } = this.linker.get(selectedNode);
