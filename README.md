@@ -1,10 +1,11 @@
 # Vis-network
-![version](https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/NodeSecure/vis-network/master/package.json&query=$.version&label=Version)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/NodeSecure/vis-network/commit-activity)
+
+![version](https://img.shields.io/badge/dynamic/json.svg?style=for-the-badge&url=https://raw.githubusercontent.com/NodeSecure/vis-network/master/package.json&query=$.version&label=Version)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/NodeSecure/vis-network/commit-activity)
 [![OpenSSF
-Scorecard](https://api.securityscorecards.dev/projects/github.com/NodeSecure/vis-network/badge)](https://api.securityscorecards.dev/projects/github.com/NodeSecure/vis-network)
-[![mit](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/NodeSecure/vis-network/blob/master/LICENSE)
-![build](https://img.shields.io/github/actions/workflow/status/NodeSecure/vis-network/node.js.yml)
+Scorecard](https://api.securityscorecards.dev/projects/github.com/NodeSecure/vis-network/badge?style=for-the-badge)](https://api.securityscorecards.dev/projects/github.com/NodeSecure/vis-network)
+[![mit](https://img.shields.io/github/license/Naereen/StrapDown.js.svg?style=for-the-badge)](https://github.com/NodeSecure/vis-network/blob/master/LICENSE)
+![build](https://img.shields.io/github/actions/workflow/status/NodeSecure/vis-network/node.js.yml?style=for-the-badge)
 
 NodeSecure [Vis.js](https://visjs.org/) network front-end module.
 
@@ -24,7 +25,7 @@ $ yarn add @nodesecure/vis-network
 // Import Third-party Dependencies
 import { NodeSecureDataSet, NodeSecureNetwork } from "@nodesecure/vis-network";
 
-document.addEventListener("DOMContentLoaded", async() => {
+document.addEventListener("DOMContentLoaded", async () => {
   const secureDataSet = new NodeSecureDataSet();
   await secureDataSet.init();
 
@@ -33,10 +34,12 @@ document.addEventListener("DOMContentLoaded", async() => {
 ```
 
 ## API
+
 - [NodeSecureDataSet](./docs/NodeSecureDataSet.md)
 - [NodeSecureNetwork](./docs/NodeSecureNetwork.md)
 
 ## Scripts
+
 The project scripts are used for those who want to test the code.
 
 - **npm start** to start an httpserver from `./dist`
@@ -47,7 +50,9 @@ The project scripts are used for those who want to test the code.
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -69,5 +74,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## License
-MIT
 
+MIT
